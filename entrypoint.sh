@@ -3,9 +3,9 @@
 set -o pipefail
 
 # config
-default_semvar_bump=${DEFAULT_BUMP:-minor}
+default_semvar_bump=${DEFAULT_BUMP:-patch}
 default_branch=${DEFAULT_BRANCH:-$GITHUB_BASE_REF} # get the default branch from github runner env vars
-with_v=${WITH_V:-false}
+with_v=${WITH_V:-true}
 release_branches=${RELEASE_BRANCHES:-master,main}
 custom_tag=${CUSTOM_TAG:-}
 source=${SOURCE:-.}

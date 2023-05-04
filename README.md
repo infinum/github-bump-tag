@@ -1,20 +1,6 @@
-# github-tag-action
-
-A Github Action to automatically bump and tag master, on merge, with the latest SemVer formatted version.
-
-[![Build Status](https://github.com/anothrNick/github-tag-action/workflows/Bump%20version/badge.svg)](https://github.com/anothrNick/github-tag-action/workflows/Bump%20version/badge.svg)
-[![Stable Version](https://img.shields.io/github/v/tag/anothrNick/github-tag-action)](https://img.shields.io/github/v/tag/anothrNick/github-tag-action)
-[![Latest Release](https://img.shields.io/github/v/release/anothrNick/github-tag-action?color=%233D9970)](https://img.shields.io/github/v/release/anothrNick/github-tag-action?color=%233D9970)
-
-> Medium Post: [Creating A Github Action to Tag Commits](https://itnext.io/creating-a-github-action-to-tag-commits-2722f1560dec)
-
-[<img src="https://miro.medium.com/max/1200/1*_4Ex1uUhL93a3bHyC-TgPg.png" width="400">](https://itnext.io/creating-a-github-action-to-tag-commits-2722f1560dec)
-
-> 📣 [This project is seeking maintainers!](https://github.com/anothrNick/github-tag-action/issues/238) 📣
+# github-bump-tag
 
 ## Usage
-
-_Note: We don't recommend using the @master version unless you're happy to test the latest changes._
 
 ```yaml
 # example 1: on push to master
@@ -74,7 +60,7 @@ _NOTE: set the fetch-depth for `actions/checkout@v2` or newer to be sure you ret
 **Environment Variables**
 
 - **GITHUB_TOKEN** **_(required)_** - Required for permission to tag the repo.
-- **DEFAULT_BUMP** _(optional)_ - Which type of bump to use when none explicitly provided (default: `minor`).
+- **DEFAULT_BUMP** _(optional)_ - Which type of bump to use when none explicitly provided (default: `patch`).
 - **DEFAULT_BRANCH** _(optional)_ - Overwrite the default branch its read from Github Runner env var but can be overwritten (default: `$GITHUB_BASE_REF`). Strongly recommended to set this var if using anything else than master or main as default branch otherwise in combination with history full will error.
 - **WITH_V** _(optional)_ - Tag version with `v` character.
 - **RELEASE_BRANCHES** _(optional)_ - Comma separated list of branches (bash reg exp accepted) that will generate the release tags. Other branches and pull-requests generate versions postfixed with the commit hash and do not generate any tag. Examples: `master` or `.*` or `release.*,hotfix.*,master` ...
@@ -124,20 +110,5 @@ If `#none` is contained in the merge commit message, it will skip bumping regard
   - If triggered on your repo's default branch (`master` or `main` if unchanged), the bump version will be a release tag.
   - If triggered on any other branch, a prerelease will be generated, depending on the bump, starting with `*-<PRERELEASE_SUFFIX>.1`, `*-<PRERELEASE_SUFFIX>.2`, ...
 
-## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
-
-## Credits
-
-- [fsaintjacques/semver-tool](https://github.com/fsaintjacques/semver-tool)
-- [Contributors to this project](https://github.com/anothrNick/github-tag-action/graphs/contributors)
-
-## Projects using github-tag-action
-
-Examples of projects using github-tag-action for reference.
-
-- another/github-tag-action (uses itself to create tags)
-- [anothrNick/json-tree-service](https://github.com/anothrNick/json-tree-service)
-
-  > Access JSON structure with HTTP path parameters as keys/indices to the JSON.
+## Project forked from https://github.com/anothrNick/github-tag-action
