@@ -72,10 +72,10 @@ _NOTE: set the fetch-depth for `actions/checkout@v2` or newer to be sure you ret
 - **PRERELEASE** _(optional)_ - Define if workflow runs in prerelease mode, `false` by default. Note this will be overwritten if using complex suffix release branches.
 - **PRERELEASE_SUFFIX** _(optional)_ - Suffix for your prerelease versions, `beta` by default. Note this will only be used if a prerelease branch.
 - **VERBOSE** _(optional)_ - Print git logs. For some projects these logs may be very large. Possible values are `true` (default) and `false`.
-- **MAJOR_STRING_TOKEN** _(optional)_ - Change the default `#major` commit message string tag.
-- **MINOR_STRING_TOKEN** _(optional)_ - Change the default `#minor` commit message string tag.
-- **PATCH_STRING_TOKEN** _(optional)_ - Change the default `#patch` commit message string tag.
-- **NONE_STRING_TOKEN** _(optional)_ - Change the default `#none` commit message string tag.
+- **MAJOR_STRING_TOKEN** _(optional)_ - Change the default `Major` commit message string tag.
+- **MINOR_STRING_TOKEN** _(optional)_ - Change the default `Minor` commit message string tag.
+- **PATCH_STRING_TOKEN** _(optional)_ - Change the default `Patch` commit message string tag.
+- **NONE_STRING_TOKEN** _(optional)_ - Change the default `None` commit message string tag.
 - **BRANCH_HISTORY** _(optional)_ - Set the history of the branch for finding `#bumps`. Possible values `last`, `full` and `compare` defaults to `compare`.
   - `full`: attempt to show all history, does not work on rebase and squash due missing HEAD [should be deprecated in v2 is breaking many workflows]
   - `last`: show the single last commit
@@ -91,10 +91,10 @@ _NOTE: set the fetch-depth for `actions/checkout@v2` or newer to be sure you ret
 
 ### Bumping
 
-**Manual Bumping:** Any commit message that includes `#major`, `#minor`, `#patch`, or `#none` will trigger the respective version bump. If two or more are present, the highest-ranking one will take precedence.
-If `#none` is contained in the merge commit message, it will skip bumping regardless `DEFAULT_BUMP`.
+**Manual Bumping:** Any commit message that includes `Major`, `Minor`, `Patch`, or `None` will trigger the respective version bump. If two or more are present, the highest-ranking one will take precedence.
+If `None` is contained in the merge commit message, it will skip bumping regardless `DEFAULT_BUMP`.
 
-**Automatic Bumping:** If no `#major`, `#minor` or `#patch` tag is contained in the merge commit message, it will bump whichever `DEFAULT_BUMP` is set to (which is `minor` by default). Disable this by setting `DEFAULT_BUMP` to `none`.
+**Automatic Bumping:** If no `Major`, `Minor` or `Patch` tag is contained in the merge commit message, it will bump whichever `DEFAULT_BUMP` is set to (which is `patch` by default). Disable this by setting `DEFAULT_BUMP` to `none`.
 
 > **_Note:_** This action **will not** bump the tag if the `HEAD` commit has already been tagged.
 
@@ -105,7 +105,7 @@ If `#none` is contained in the merge commit message, it will skip bumping regard
 - Either push to master or open a PR
 - On push (or merge), the action will:
   - Get latest tag
-  - Bump tag with minor version unless the merge commit message contains `#major` or `#patch`
+  - Bump tag with minor version unless the merge commit message contains `Major` or `Patch`
   - Pushes tag to github
   - If triggered on your repo's default branch (`master` or `main` if unchanged), the bump version will be a release tag.
   - If triggered on any other branch, a prerelease will be generated, depending on the bump, starting with `*-<PRERELEASE_SUFFIX>.1`, `*-<PRERELEASE_SUFFIX>.2`, ...

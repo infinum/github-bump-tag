@@ -15,10 +15,10 @@ tag_context=${TAG_CONTEXT:-repo}
 prerelease=${PRERELEASE:-false}
 suffix=${PRERELEASE_SUFFIX:-beta}
 verbose=${VERBOSE:-false}
-major_string_token=${MAJOR_STRING_TOKEN:-#major}
-minor_string_token=${MINOR_STRING_TOKEN:-#minor}
-patch_string_token=${PATCH_STRING_TOKEN:-#patch}
-none_string_token=${NONE_STRING_TOKEN:-#none}
+major_string_token=${MAJOR_STRING_TOKEN:-Major}
+minor_string_token=${MINOR_STRING_TOKEN:-Minor}
+patch_string_token=${PATCH_STRING_TOKEN:-Patch}
+none_string_token=${NONE_STRING_TOKEN:-None}
 branch_history=${BRANCH_HISTORY:-compare}
 # since https://github.blog/2022-04-12-git-security-vulnerability-announced/ runner uses?
 git config --global --add safe.directory /github/workspace
